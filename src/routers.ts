@@ -26,12 +26,16 @@ const routes: Route[] = [
 
 export function initRouter(rootEl: Element): void {
   function router(route: string): void {
-    if (route === "/") {
+    const cleanRoute = route.replace("/wizzard-apx", "");
+
+    if (cleanRoute === "/") {
       goTo("/sit1");
+      return;
     }
+
     routes.forEach((r: Route) => {
       // Busca la ruta que coincida con el path
-      if (r.path.test(route)) {
+      if (r.path.test(cleanRoute)) {
         const viewEl = r.component({ goTo: goTo }); // Genera la vista desde el componente
         rootEl.innerHTML = ""; // Limpia el HTML
         rootEl.appendChild(viewEl); // Inserta la vista
@@ -41,7 +45,8 @@ export function initRouter(rootEl: Element): void {
 
   // Función utilitaria que pasa a la vista seleccionada para poder navegar a otras rutas
   function goTo(uri: string): void {
-    history.pushState({}, "", uri);
+    const fullUri = "/wizzard-apx" + uri;
+    history.pushState({}, "", fullUri);
     router(uri);
   }
 
