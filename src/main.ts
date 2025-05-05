@@ -1,4 +1,3 @@
-import { state } from "./state";
 import "./components/buttonEl/button";
 import "./components/inputEl/input";
 import "./components/headerEl/header";

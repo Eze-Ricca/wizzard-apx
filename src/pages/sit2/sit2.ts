@@ -40,7 +40,6 @@ export function initSit2(params: { goTo: (arg: string) => void }) {
 
   // Función que actualiza dinámicamente el contenido con los datos del estado
   function render() {
-    const newState = state.getState();
     divEl.innerHTML = `
   <header-el></header-el>
     <div class="container">

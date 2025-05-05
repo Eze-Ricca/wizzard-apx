@@ -74,7 +74,7 @@ export function initSit1(params: { goTo: (arg: string) => void }) {
 
   const inputEl = divEl.querySelector(".input-name") as ReusableInput;
   const buttonEl = divEl.querySelector(".button-form");
-  buttonEl?.addEventListener("click", (e) => {
+  buttonEl?.addEventListener("click", () => {
     // e.preventDefault();
     const nameWizard = inputEl.getValue();
     newState.nombre = nameWizard;
